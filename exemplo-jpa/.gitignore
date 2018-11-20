@@ -1,0 +1,4 @@
+professoresdb/
+target/
+derby.log
+exemplo-jpa.iml
