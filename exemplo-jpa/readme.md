@@ -1,10 +1,10 @@
-# Exemplo JDBC
+# Exemplo JPA
 
-Exemplo de utilização de banco de dados com Java através de JDBC.
+Exemplo de utilização de banco de dados com Java através de JPA.
 
 ## Executando
 
-Para executar esse projeto é necessário executar o banco de dados Derby, em seguida executar o Tomcat e então acessar o endereço `http://localhost:9090/venda-jdbc/venda`.
+Para executar esse projeto é necessário executar o banco de dados Derby, em seguida executar o Tomcat e então acessar o endereço `http://localhost:9090/jpa/professores`.
 
 ### Para iniciar o Derby
 
@@ -39,5 +39,12 @@ create table venda (
   codigo varchar(100),
   produto varchar(100),
   quantidade integer
+)
+```
+
+```sql
+create table conta (
+  numero int,
+  saldo decimal
 )
 ```
