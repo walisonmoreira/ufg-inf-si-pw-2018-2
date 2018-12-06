@@ -46,6 +46,11 @@
             <artifactId>derbyclient</artifactId>
             <version>${derby.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>${derby.version}</version>
+        </dependency>
         <!-- Para usar o driver do banco de dados Derby. -->
         <!--dependency>
             <groupId>mysql</groupId>
@@ -66,6 +71,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>exemplo-jpa</finalName>
         <plugins>
             <!-- Plugin para executar e administrar o projeto no Tomcat 7. Site do plugin: http://tomcat.apache.org/maven-plugin-2.2/tomcat7-maven-plugin -->
             <plugin>
@@ -124,6 +130,28 @@
                         <version>${derby.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <!-- Necessário para trabalhar com Heroku. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>copy</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.github.jsimone</groupId>
+                                    <artifactId>webapp-runner</artifactId>
+                                    <version>9.0.11.0</version>
+                                    <destFileName>webapp-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
